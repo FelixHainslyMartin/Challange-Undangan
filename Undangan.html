@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wedding Invitation</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            height: 100vh;
+            background-color: #f0f0f0;
+            color: black;
+            font-family: Arial, Helvetica, sans-serif;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .container {
+            min-width: 300px;
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .page {
+            width: 100%;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-image: url(asset/Images_4.avif);
+            background-color: #ffffff;
+            color: rgba(204, 70, 9, 0.927);
+            border-radius: 15px;
+            animation: fadeIn 2s ease-in-out;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin-bottom: 20px;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        .dark-mode .page {
+            background-image: url(asset/Images_1.jpg);
+            color: rgb(219, 165, 30);
+        }
+
+        .page > div, .page > p, .page > h1, .page > h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .page-cover title h2,
+        .dark-mode .page-cover title h2 {
+            font-size: 2rem;
+            font-family: 'Times New Roman';
+        }
+
+        .cover .title h1,
+        .dark-mode .cover .title h1 {
+            font-size: 2rem;
+            font-family: 'Arial Rounded MT Bold', cursive;
+        }
+
+        .cover .title p,
+        .dark-mode .cover .title p {
+            font-size: 1.2rem;
+            font-family: 'Dancing Script', cursive;
+        }
+
+        .invitation .card {
+            max-width: 300px;
+            height: 60%;
+            background-color: #f0f0f0;
+            border-radius: 50px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+            align-items: center;
+            padding: 20px;
+            border: #000 2px solid;
+            animation: glow 2s infinite alternate;
+        }
+
+        .dark-mode .invitation .card {
+            background-color: black;
+            color: rgb(219, 165, 30);
+        }
+
+        .circle {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            background-size: cover;
+            animation: spin 10s linear infinite;
+            /* box-shadow: 0 0 20px rgba(78, 27, 77, 0.5); */
+            overflow : hidden;
+        }
+
+        .cover .circle {
+            background-image: url('./asset/Images_3.png');
+        }
+
+        .invitation .circle {
+            background-image: url('./asset/Images_2.jpg');
+            background-repeat: no-repeat cover;
+            background-size: cover;
+        }
+
+        .card {
+            color: rgba(204, 70, 9, 0.927);
+        }
+
+        .dark-mode .card {
+            color: rgb(219, 165, 30);
+        }
+
+        .line {
+            width: 150px;
+            height: 1px;
+            background-color: rgba(204, 70, 9, 0.927);
+            margin: 10px 0;
+        }
+
+        .dark-mode .line {
+            background-color: rgb(219, 165, 30);
+        }
+
+        .countdown {
+            font-size: 1.5rem;
+        }
+
+        .dark-mode-toggle {
+            position: relative;
+            width: 60px;
+            height: 34px;
+            background-color: #ccc;
+            border-radius: 34px;
+            cursor: pointer;
+            margin: 20px auto;
+            transition: background-color 0.3s;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .dark-mode-toggle i {
+            font-size: 1.5rem;
+            transition: transform 0.3s;
+        }
+
+        .dark-mode-toggle.active {
+            background-color: #007bff;
+        }
+
+        .dark-mode-toggle.active i {
+            transform: rotate(180deg);
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes glow {
+            from {
+                box-shadow: 0 0 5px rgba(255, 255, 255, 0.872);
+            }
+            to {
+                box-shadow: 0 0 20px rgba(202, 193, 200, 0.2);
+            }
+        }
+
+        @keyframes spin {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        .dark-mode {
+            background-color: #121212;
+            color: white;
+        }
+
+        .dark-mode .page {
+            background-color: #1f1f1f;
+            box-shadow: 0 0 20px rgba(103, 78, 100, 0.5);
+            box-shadow: 0 0 20px rgba(234, 168, 232, 0.5);
+        }
+
+        .launch-time {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 100px;
+        }
+
+        .launch-time div p,
+        .dark-mode .launch-time div p {
+            color: rgba(204, 70, 9, 0.927);
+            margin: 10px;
+            font-family: 'Dancing Script', cursive;
+            font-size: 60px;
+            margin-bottom: -14px;
+        }
+
+        .dark-mode .launch-time div p {
+            color: rgb(219, 165, 30);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="dark-mode-toggle" id="darkModeToggle">
+            <i class="fas fa-moon"></i>
+        </div>
+
+        <section class="page cover">
+            <div class="title">
+                <h2>The Wedding of</h2>
+            </div>
+            <div class="circle"></div>
+            <h1>Edward & Aleena</h1>
+            <p>Saturday, 20 July, 2025</p>
+            <div class="guest-name">
+                <p>To the esteemed guest,</p>
+                <p>Dr Jhon, M.Kom.</p>
+            </div>
+        </section>
+
+        <section class="page invitation">
+            <h2>The Beloved</h2>
+            <h1>Edward & Aleena</h1>
+            <p>INVITE YOU TO CELEBRATE THEIR MARRIAGE</p>
+            <div class="card">
+                <div class="circle"></div>
+                <h1>Edward Lie</h1>
+                <div class="line"></div>
+                <p>Mr George Hanson.</p>
+                <p>&</p>
+                <p>Mrs. Alexa Hudson</p>
+            </div>
+        </section>
+
+        <section class="page closing">
+            <h2>Countdown to the Event</h2>
+            <div class="launch-time">
+                <div>
+                    <p id="days">00</p>
+                    <span>Days</span>
+                </div>
+                <div>
+                    <p id="hours">00</p>
+                    <span>Hours</span>
+                </div>
+                <div>
+                    <p id="minutes">00</p>
+                    <span>Minutes</span>
+                </div>
+                <div>
+                    <p id="seconds">00</p>
+                    <span>Seconds</span>
+                </div>
+            </div>
+            <div id="countdown" class="countdown"></div>
+            <p id="eventMessage"></p>
+            <p>We are excited to celebrate this special day with you!</p>
+        </section>
+    </div>
+
+    <script>
+        function updateCountdown() {
+            const eventDate = new Date("July 20, 2025 00:00:00").getTime();
+            const now = new Date().getTime();
+            const distance = eventDate - now;
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById('days').innerHTML = days;
+            document.getElementById('hours').innerHTML = hours;
+            document.getElementById('minutes').innerHTML = minutes;
+            document.getElementById('seconds').innerHTML = seconds;
+
+            if (distance <= 10000 && distance > 0) {
+                document.getElementById('eventMessage').innerHTML = "The event is about to start!";
+            } else if (distance < 0) {
+                clearInterval(countdownInterval);
+                document.getElementById('eventMessage').innerHTML = "The event has started!";
+            }
+        }
+
+        const countdownInterval = setInterval(updateCountdown, 1000);
+
+        function toggleDarkMode() {
+            document.body.classList.toggle('dark-mode');
+            document.getElementById('darkModeToggle').classList.toggle('active');
+
+            if (document.body.classList.contains('dark-mode')) {
+                localStorage.setItem('darkMode', 'enabled');
+            } else {
+                localStorage.setItem('darkMode', 'disabled');
+            }
+        }
+
+        window.addEventListener('load', () => {
+            if (localStorage.getItem('darkMode') === 'enabled') {
+                document.body.classList.add('dark-mode');
+                document.getElementById('darkModeToggle').classList.add('active');
+            }
+        });
+
+        document.getElementById('darkModeToggle').addEventListener('click', toggleDarkMode);
+    </script>
+</body>
+</html>
